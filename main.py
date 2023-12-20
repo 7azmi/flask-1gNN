@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 import os
 import requests
-from push_ups import pushup  # Import your custom pose detection module
+#from push_ups import pushup  # Import your custom pose detection module
 
 app = Flask(__name__)
 VIDEO_PATH = 'downloaded_video.mp4'
@@ -25,6 +25,7 @@ def count_pushups():
 
     if download_video(video_url):
         print(video_url)
+        from push_ups import pushup
         pushup_count = pushup.calculate_pushups()  # Use your existing function
         os.remove(VIDEO_PATH)  # Clean up by removing the downloaded video
         return jsonify({'pushup_count': pushup_count})
