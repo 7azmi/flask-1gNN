@@ -1,6 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import os
 import requests
+
 #from push_ups import pushup  # Import your custom pose detection module
 
 app = Flask(__name__)
